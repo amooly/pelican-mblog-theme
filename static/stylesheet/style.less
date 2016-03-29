@@ -1,3 +1,6 @@
+@color-main: #606c71;
+@color-header:  #159957;
+
 @orange: #D9411E;
 @light-orange: #FF5A09;
 @white:  #ffffff;
@@ -5,6 +8,10 @@
 @light-grey:  #eeeeee;
 @med-grey:  #999999;
 @dark-grey: #242121;
+
+@font-family-main: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@font-size-main: 1.1rem;
+@line-height-main: 1.5;
 @sans: 'Source Sans Pro', 'Verdana', sans-serif;
 @mono: 'Source Code Pro', 'Consolas', monospace;
 
@@ -21,6 +28,7 @@ h5,
 h6 {
   font-weight: 300;
   line-height: 1.1;
+  color: @color-header;
 }
 
 h1{
@@ -153,6 +161,9 @@ main {
   }
 
   article {
+    line-height: @line-height-main;
+    font-size: @font-size-main;
+    font-family: @font-family-main;
     margin: 0 8% 2% 8%;
 
     header {
@@ -397,7 +408,7 @@ ul.social {
     overflow-y: auto;
 
     div {
-      padding: 36px 18px;
+      padding: 100px 18px;
 
       nav {
         ul {
