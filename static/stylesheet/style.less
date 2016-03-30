@@ -1,6 +1,3 @@
-@color-main: #606c71;
-@color-header:  #159957;
-
 @orange: #D9411E;
 @light-orange: #FF5A09;
 @white:  #ffffff;
@@ -9,11 +6,18 @@
 @med-grey:  #999999;
 @dark-grey: #242121;
 
-@font-family-main: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-@font-size-main: 1.1rem;
-@line-height-main: 1.5;
-@sans: 'Source Sans Pro', 'Verdana', sans-serif;
+@sans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 @mono: 'Source Code Pro', 'Consolas', monospace;
+
+/* self difined. */
+@blue: #1e6bb8;
+@black: #606c71;
+@light-grey: #eff0f1;
+@green: #159957;
+@light-green: #49bf9d;
+@font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@font-size: 1.1rem;
+@line-height: 1.5;
 
 html, body {
   width: 100%;
@@ -28,7 +32,8 @@ h5,
 h6 {
   font-weight: 300;
   line-height: 1.1;
-  color: @color-header;
+  color: @green;
+  font-family: @font-family;
 }
 
 h1{
@@ -59,25 +64,25 @@ body {
   margin: 0;
   padding: 0;
   background-color: @white;
-  color: @dark-grey;
-  font-family: @sans;
-  font-size: 1.02em;
-  line-height: 1.2em;
+  color: @black;
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: @line-height;
 }
 
 a {
-  color: @orange;
+  color: @light-green;
   text-decoration: none;
 }
 
 a:hover {
-  color: @light-orange;
+  border-bottom: dotted 1px @light-green;
 }
 
 hr {
   color: @light-grey;
   background-color: @light-grey;
-  height: 1px;
+  height: 2px;
   border: none;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -94,10 +99,12 @@ aside {
 
   a {
     color: @white;
+    border-bottom: none;
   }
 
   a:hover {
     color: @light-grey;
+    border-bottom: none;
   }
 
   div {
@@ -161,14 +168,20 @@ main {
   }
 
   article {
-    line-height: @line-height-main;
-    font-size: @font-size-main;
-    font-family: @font-family-main;
+    line-height: @line-height;
+    font-size: @font-size;
+    font-family: @font-family;
     margin: 0 8% 2% 8%;
 
     header {
+      text-align: center;  
+      margin-bottom: 50px;
+        
       h1, h2 {
         margin-bottom: 0;
+        color: @black;
+        font-size: 3em;
+        font-weight: 500;
       }
 
       p {
