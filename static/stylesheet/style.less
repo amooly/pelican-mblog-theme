@@ -1,22 +1,15 @@
-@orange: #D9411E;
-@light-orange: #FF5A09;
 @white:  #ffffff;
-@grey: #333333;
-@light-grey:  #eeeeee;
-@med-grey:  #999999;
-@dark-grey: #242121;
-
-@sans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-@mono: 'Source Code Pro', 'Consolas', monospace;
-
-/* self difined. */
+@dark-white:#f5f5f5;
 @blue: #1e6bb8;
 @black: #606c71;
+@grey: #333333;
+@med-grey: #999999;
 @light-grey: #eff0f1;
 @green: #159957;
 @light-green: #49bf9d;
 @font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-@font-size: 1.1rem;
+@font-family-code: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+@font-size: 1rem;
 @line-height: 1.5;
 
 html, body {
@@ -24,6 +17,7 @@ html, body {
   height: 100%;
 }
 
+/* 标题 */
 h1,
 h2,
 h3,
@@ -35,48 +29,49 @@ h6 {
   color: @green;
   font-family: @font-family;
 }
-
 h1{
   font-size: 2.4em
 }
-
 h2 {
   font-size: 2em
 }
-
 h3 {
   font-size: 1.6em
 }
-
 h4 {
   font-size: 1.36em
 }
-
 h5 {
   font-size: 1.2em
 }
-
 h6 {
   font-size: 1.1em
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: @white;
-  color: @black;
-  font-family: @font-family;
-  font-size: @font-size;
-  line-height: @line-height;
-}
-
+/* 通用组件 */
 a {
   color: @light-green;
   text-decoration: none;
 }
-
 a:hover {
   border-bottom: dotted 1px @light-green;
+}
+
+a.btn {
+  padding: .5rem 1rem;
+  line-height: 1.1rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  color: @white;
+  background-color: @green;
+  border: 3px @green solid;
+}
+a.btn:hover {
+  color: @white;
+  background-color: @light-green;
+  border: 3px @light-green solid;
 }
 
 hr {
@@ -90,6 +85,16 @@ hr {
 
 img {
   max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: @white;
+  color: @black;
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: @line-height;
 }
 
 aside {
@@ -171,31 +176,43 @@ main {
     line-height: @line-height;
     font-size: @font-size;
     font-family: @font-family;
-    margin: 0 8% 2% 8%;
+    margin: 0 10% 2% 8%;
 
     header {
-      text-align: center;  
-      margin-bottom: 50px;
         
       h1, h2 {
         margin-bottom: 0;
         color: @black;
-        font-size: 3em;
+        font-size: 2.5em;
         font-weight: 500;
+        
+        a{
+            color: @green;
+        }
+        a:hover{
+            color: @light-green;
+            border-bottom: none;
+        }
       }
+      
 
       p {
         color: @med-grey;
         font-size: 0.82em;
       }
     }
+    
+    p{
+        margin-bottom: 1.5rem;
+    }
 
     code, kbd, samp, pre {
-      font-family: @mono;
+      font-family: @font-family-code;
     }
 
     blockquote, pre {
-      background-color: rgba(128,128,128,0.05);
+      background-color: #f3f6fa;
+      border: solid 1px #dce6f0;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       border-left: 8px solid rgba(128,128,128,0.075);
@@ -209,7 +226,7 @@ main {
     }
 
     pre {
-      padding: 4px;
+      padding: 0.8em 0.8em 0.8em 1.5em;
       font-size: .9em;
       overflow-x: auto;
     }
@@ -234,12 +251,11 @@ main {
     }
 
     code {
-      font-size: .8em;
       white-space: nowrap;
       color: #c25;
       padding: 1px 3px;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
+      background-color: #f3f6fa;
+      border: solid 1px #dce6f0;
       border-radius: 3px;
     }
 
@@ -266,6 +282,7 @@ main {
 
   footer {
     padding-top: 4px;
+    margin-top: 2rem;
     border-top: @light-grey 1px solid;
 
     p {
@@ -284,42 +301,27 @@ main {
 
 .tag-cloud {
   a {
-    background-color: @orange;
-    padding: .2em .6em .2em;
-    font-size: .74em;
+    background-color: @light-green;
+    padding: .2em .8em .2em;
+    margin-right: 0.5em;
+    font-size: 1em;
     line-height: 1;
     color: @white;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
+    border-radius: .5em;
   }
 
   a:hover {
-    background-color: @light-orange;
+    background-color: @green;
   }
 }
 
-a.btn {
-  background-color: @orange;
-  padding: .4em .6em;
-  font-size: .9em;
-  line-height: 1;
-  color: @white;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-
-a.btn:hover {
-  background-color: @light-orange;
-}
-
+/* 通用属性 */
 .center {
   text-align: center;
 }
-
 .float-right {
   float: right;
 }

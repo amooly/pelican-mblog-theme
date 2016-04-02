@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/stylesheet/pygments.min.css">
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/stylesheet/font-awesome.min.css">
 
-  {% if CUSTOM_CSS %}
+  <!--{% if CUSTOM_CSS %}
     <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
   {% endif %}
 
@@ -28,11 +28,11 @@
   {% if FAVICON %}
     <link rel="shortcut icon" href="{{ FAVICON }}" type="image/x-icon">
     <link rel="icon" href="{{ FAVICON }}" type="image/x-icon">
-  {% endif %}
+  {% endif %}-->
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="{{ ROBOTS }}" />
+  <!--<meta name="robots" content="{{ ROBOTS }}" />-->
 
   {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
@@ -48,12 +48,8 @@
   {% endif %}
   <aside>
     <div>
-      <a href="{{ SITEURL }}">
-        {% if SITELOGO %}
-        <img src="{{ SITELOGO }}" alt="{{ SITETITLE }}" title="{{ SITETITLE }}">
-        {% else %}
-        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/mooly.png" alt="{{ SITETITLE }}" title="{{ SITETITLE }}">
-        {% endif %}
+      <a href="{{ SITEURL }}/about.html">
+        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/mooly.png" alt="About me" title="{{ SITETITLE }}">
       </a>
       <h1><a href="{{ SITEURL }}">{{ SITETITLE }}</a></h1>
       <p>{{ SITESUBTITLE }}</p>

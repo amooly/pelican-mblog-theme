@@ -14,12 +14,7 @@
   <header>
     <h1 id="{{ article.slug }}">{{ article.title }}</h1>
     <p>Posted on {{ article.locale_date }} in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
-    <hr>
-  </header>
-  <div>
-    {{ article.content }}
-  </div>
-  <div class="tag-cloud">
+    <div class="tag-cloud">
     <p>
       {% if article.tags %}
       {% for tag in article.tags %}
@@ -27,6 +22,11 @@
       {% endfor %}
       {% endif %}
     </p>
+  </div>
+    <hr>
+  </header>
+  <div>
+    {{ article.content }}
   </div>
   {% if ADD_THIS_ID %}
   <div class="center social-share">
