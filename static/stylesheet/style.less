@@ -1,67 +1,86 @@
-@import "variables.less";
+@white:  #ffffff;
+@dark-white:#f5f5f5;
+@blue: #1e6bb8;
+@black: #606c71;
+@grey: #333333;
+@med-grey: #999999;
+@light-grey: #eff0f1;
+@green: #159957;
+@light-green: #49bf9d;
+@font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@font-family-code: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+@font-size: 1rem;
+@line-height: 1.5;
 
 html, body {
   width: 100%;
   height: 100%;
 }
 
+/* 标题 */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  margin-bottom: .5rem;
   font-weight: 300;
   line-height: 1.1;
+  font-family: @font-family;
 }
-
 h1{
-  font-size: 2.4em
+  margin-top: 1.8rem;
+  font-size: 2.4em;
 }
-
 h2 {
-  font-size: 2em
+  margin-top: 1.8rem;
+  font-size: 2em;
+  color: @green;
 }
-
 h3 {
   font-size: 1.6em
 }
-
 h4 {
   font-size: 1.36em
 }
-
 h5 {
   font-size: 1.2em
 }
-
 h6 {
   font-size: 1.1em
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: @body-bg;
-  color: @text-color;
-  font-family: @sans;
-  font-size: 1.02em;
-  line-height: 1.2em;
-}
-
+/* 通用组件 */
 a {
-  color: @link-color;
+  color: @light-green;
   text-decoration: none;
 }
-
 a:hover {
-  color: @link-hover-color;
+  border-bottom: dotted 1px @light-green;
+}
+
+a.btn {
+  padding: .5rem 1rem;
+  line-height: 1.1rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  color: @white;
+  background-color: @green;
+  border: 3px @green solid;
+}
+a.btn:hover {
+  color: @white;
+  background-color: @light-green;
+  border: 3px @light-green solid;
 }
 
 hr {
   color: @light-grey;
   background-color: @light-grey;
-  height: 1px;
+  height: 2px;
   border: none;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -71,17 +90,29 @@ img {
   max-width: 100%;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: @white;
+  color: @black;
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: @line-height;
+}
+
 aside {
-  background-color: @sidebar-bg;
-  color: @sidebar-text-color;
+  background-color: #243f67;
+  color: @white;
   text-align: center;
 
   a {
-    color: @sidebar-link-color;
+    color: @white;
+    border-bottom: none;
   }
 
   a:hover {
-    color: @sidebar-link-hover-color;
+    color: @light-grey;
+    border-bottom: none;
   }
 
   div {
@@ -121,32 +152,20 @@ main {
     text-transform: uppercase;
     font-size: .72em;
     padding: 14px 0 14px 0;
-    border-bottom: @nav-border-color 1px solid;
-  }
+    border-bottom: @light-grey 1px solid;
 
-  nav, .translations {
     a {
       padding: 0 4px 0 4px;
-      border-left: @nav-border-color 1px solid;
-      border-right: @nav-border-color 1px solid;
+      border-right: @light-grey 1px solid;
     }
 
     :first-child {
-      border-left: none;
+      border-left: @light-grey 1px solid;
     }
-
-    :last-child {
-      border-right: none;
-    }
-  }
-
-  .neighbors {
-    margin: 4% 0% 4% 0%;
-    height: 20px;
   }
 
   .pagination {
-    margin: 4% 8% 4% 8%;
+    margin: 4% 8% 2% 8%;
     height: 20px;
   }
 
@@ -157,48 +176,61 @@ main {
   }
 
   article {
-    margin: 0 8% 2% 8%;
+    line-height: @line-height;
+    font-size: @font-size;
+    font-family: @font-family;
+    margin: 0 10% 2% 8%;
 
     header {
+        
       h1, h2 {
         margin-bottom: 0;
-      }
-
-      p {
-        color: @header-text-color;
-        font-size: 0.86em;
-      }
-
-      .translations {
-        float: right;
-
-        .active {
-          font-weight: 600;
+        color: @black;
+        font-size: 2em;
+        font-weight: 500;
+        
+        a{
+            color: @green;
+        }
+        a:hover{
+            color: @light-green;
+            border-bottom: none;
         }
       }
+      
+
+      p {
+        color: @med-grey;
+        font-size: 0.82em;
+      }
+    }
+    
+    p{
+        margin-bottom: 1.5rem;
     }
 
     code, kbd, samp, pre {
-      font-family: @mono;
+      font-family: @font-family-code;
     }
 
     blockquote, pre {
-      background-color: rgba(128,128,128,0.05);
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-left: 8px solid rgba(128,128,128,0.075);
-      border-left-width: 10px;
+      background-color: #f3f6fa;
+      border: solid 1px #dce6f0;
+      font-size: .9em;
     }
 
     blockquote {
-      padding: 10px 20px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-left-width: 10px;
+      margin: 10px;
+      padding: 0px 20px;
       font-weight: 300;
-      font-size: 1.1em;
     }
 
     pre {
-      padding: 4px;
-      font-size: .9em;
+      border-radius: 5px;
+      padding: 0.8em 0.8em 0.8em 1.5em;
       overflow-x: auto;
     }
 
@@ -222,12 +254,11 @@ main {
     }
 
     code {
-      font-size: .8em;
       white-space: nowrap;
       color: #c25;
       padding: 1px 3px;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
+      background-color: #f3f6fa;
+      border: solid 1px #dce6f0;
       border-radius: 3px;
     }
 
@@ -254,97 +285,51 @@ main {
 
   footer {
     padding-top: 4px;
-    border-top: @footer-border-color 1px solid;
+    margin-top: 2rem;
+    border-top: @light-grey 1px solid;
 
     p {
       margin: 2px;
       text-align: center;
       padding: 0 40px 0 40px;
-      color: @footer-text-color;
+      color: @med-grey;
       font-size: 11px;
     }
+  }
+
+  .related-posts {
+    border-top: @light-grey 1px solid;
   }
 }
 
 .tag-cloud {
   a {
-    background-color: @tag-bg;
-    padding: .2em .6em .2em;
-    font-size: .74em;
+    background-color: @light-green;
+    padding: .2em .8em .2em;
+    margin-right: 0.5em;
+    font-size: 1em;
     line-height: 1;
-    color: @tag-text-color;
+    color: @white;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
+    border-radius: .5em;
   }
 
   a:hover {
-    background-color: @tag-hover-color;
+    background-color: @green;
   }
 }
 
-a.btn {
-  background-color: @btn-bg;
-  padding: .6em .6em;
-  font-size: .8em;
-  line-height: 1;
-  color: @btn-text-color;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-
-a.btn:hover {
-  background-color: @btn-hover-color;
-}
-
-.center, .text-center {
+/* 通用属性 */
+.center {
   text-align: center;
 }
-
-.img-center {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.align-center {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.float-left {
-  float: left;
-}
-
 .float-right {
   float: right;
 }
 
-div.related-posts {
-  margin: 15px 0 15px 0;
-  padding-bottom: 20px;
-  border-top: @rel-post-border-color 1px solid;
-  border-bottom: @rel-post-border-color 1px solid;
-
-  h4 {
-    margin: 20px 0 25px 0;
-  }
-
-  ul {
-    font-size: 1.1em;
-    padding-left: 12px;
-
-    li {
-      padding: 4px 0 4px 0;
-    }
-  }
-}
-
-ul.list, ul.social, ul.related-posts {
+ul.list, ul.social {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -383,87 +368,48 @@ ul.social {
   }
 
   a.sc-facebook {
-    background-color: @facebook-bg-color;
+    background-color: #3e5b98;
   }
 
   a.sc-google {
-    background-color: @google-bg-color;
-  }
-
-  a.sc-instagram {
-    background-color: @instagram-bg-color;
+    background-color: #d93e2d;
   }
 
   a.sc-pinterest {
-    background-color: @pinterest-bg-color;
+    background-color: #c92619;
   }
 
   a.sc-linkedin {
-    background-color: @linkedin-bg-color;
-  }
-
-  a.sc-medium {
-    background-color: @medium-bg-color;
+    background-color: #3371b7;
   }
 
   a.sc-rss {
-    background-color: @rss-bg-color;
+    background-color: #f26109;
   }
 
   a.sc-stack-overflow {
-    background-color: @stack-overflow-bg-color;
-  }
-
-  a.sc-tumblr {
-    background-color: @tumblr-bg-color;
+    background-color: #ff9900;
   }
 
   a.sc-twitter {
-    background-color: @twitter-bg-color;
+    background-color: #4da7de;
   }
 
   a.sc-youtube {
-    background-color: @youtube-bg-color;
+    background-color: #e02a20;
   }
 
   a.sc-github, a.sc-github-alt {
-    background-color: @github-bg-color;
+    background-color: #111010;
   }
 
   a.sc-envelope-o {
-    background-color: @email-bg-color;
+    background-color: #578AD6;
   }
 
   a.sc-reddit {
-    background-color: @reddit-bg-color;
+    background-color: #ff4500;
   }
-
-  a.sc-soundcloud {
-    background-color: @soundcloud-bg-color;
-  }
-
-  a.sc-gitlab {
-    background-color: @gitlab-bg-color;
-  }
-
-  a.sc-xing {
-    background-color: @xing-bg-color;
-  }
-
-}
-
-.ads-aside {
-  display: inline-block;
-  height: 90px;
-  width: 70%;
-}
-
-.ads-responsive {
-  display: inline-block;
-  margin: 6px 0 6px 0;
-  width: 90%;
-  height: 70px;
-  margin-left: 5%;
 }
 
 //
@@ -480,7 +426,7 @@ ul.social {
     overflow-y: auto;
 
     div {
-      padding: 36px 18px;
+      padding: 100px 18px;
 
       nav {
         ul {
@@ -499,30 +445,18 @@ ul.social {
 
   main {
     width: 75%;
-    height: 100%;
     position: absolute;
     top: 0;
     left: 25%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 
     article {
-
-      &.single {
-        min-height: 80%;
-      }
-
       ul.list {
         li {
           padding: 2px;
         }
       }
     }
-  }
-
-  .ads-aside {
-    height: 250px;
-  }
-
-  .ads-responsive {
-    height: 90px;
   }
 }
